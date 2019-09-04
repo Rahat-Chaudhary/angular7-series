@@ -27,9 +27,7 @@
               "projects/home/src/favicon.ico",
               "projects/home/src/assets"
             ],
-            "styles": [
-              "projects/home/src/styles.scss"
-            ],
+            "styles": ["projects/home/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -92,9 +90,7 @@
               "projects/home/src/favicon.ico",
               "projects/home/src/assets"
             ],
-            "styles": [
-              "projects/home/src/styles.scss"
-            ],
+            "styles": ["projects/home/src/styles.scss"],
             "scripts": []
           }
         },
@@ -106,9 +102,7 @@
               "projects/home/tsconfig.spec.json",
               "projects/home/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -149,9 +143,7 @@
               "projects/profile/src/favicon.ico",
               "projects/profile/src/assets"
             ],
-            "styles": [
-              "projects/profile/src/styles.scss"
-            ],
+            "styles": ["projects/profile/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -214,9 +206,7 @@
               "projects/profile/src/favicon.ico",
               "projects/profile/src/assets"
             ],
-            "styles": [
-              "projects/profile/src/styles.scss"
-            ],
+            "styles": ["projects/profile/src/styles.scss"],
             "scripts": []
           }
         },
@@ -228,9 +218,7 @@
               "projects/profile/tsconfig.spec.json",
               "projects/profile/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -246,6 +234,45 @@
           }
         }
       }
-    }},
+    },
+    "ng7-common": {
+      "projectType": "library",
+      "root": "projects/ng7-common",
+      "sourceRoot": "projects/ng7-common/src",
+      "prefix": "ng7-common",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng7-common/tsconfig.lib.json",
+            "project": "projects/ng7-common/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng7-common/src/test.ts",
+            "tsConfig": "projects/ng7-common/tsconfig.spec.json",
+            "karmaConfig": "projects/ng7-common/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng7-common/tsconfig.lib.json",
+              "projects/ng7-common/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "home"
 }
